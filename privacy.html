@@ -5,18 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy Policy - Tic Tac Battle</title>
 <meta name="description" content="How Tic Tac Battle by Pulsebyte handles your information. Short version: your game data stays on your device.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="logo.png">
+<meta name="theme-color" content="#0f0a2a">
+<meta property="og:title" content="Tic Tac Battle by Pulsebyte">
+<meta property="og:image" content="https://helppulsebyte-lgtm.github.io/tic-tac-battle/logo.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
-  <a class="brand" href="index.html">TIC TAC <b>BATTLE</b></a>
-  <nav><a href="index.html">Home</a><a class="on" href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
-</header>
+<div class="bar"><header class="top"><a class="brand" href="index.html"><img src="logo.png" alt="Tic Tac Battle logo" width="44" height="44"><span>TIC TAC <b>BATTLE</b></span></a><button class="burger" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button><nav id="mainNav" aria-label="Main"><a href="index.html">Home</a><a href="privacy.html" class="on">Privacy</a><a href="terms.html">Terms</a></nav></header></div>
 <main>
-<section class="hero">
+<section class="hero slim"><img class="logo" src="logo.png" alt="Tic Tac Battle" width="64" height="64"><div>
   <h1>Privacy <span>Policy</span></h1>
   <p class="meta">Tic Tac Battle &middot; Effective date: 5 October 2026 &middot; Version 1.0</p>
-</section>
+</div></section>
 
 <div class="note"><b>The short version.</b> Tic Tac Battle does not ask you to create an account, does not show ads, and does not include analytics or tracking tools. Your progress, settings and purchases of in-game items are stored only on your own device. We do not sell your information, because we do not collect it.</div>
 
@@ -43,13 +45,13 @@
 
 <h2 id="collect">2. Information we handle</h2>
 <p>The App works offline and keeps everything below on your device. None of it is sent to Pulsebyte or to any server operated by us.</p>
-<table>
+<div class="tbl"><table>
 <tr><th>Information</th><th>Why it exists</th><th>Where it is kept</th></tr>
 <tr><td><b>Player name</b> (optional, typed by you; defaults to "Player")</td><td>Shown on your profile, in matches and in rankings inside the App.</td><td>On your device only.</td></tr>
 <tr><td><b>Game progress</b>: level, experience, coins, win/loss records, puzzle stars, Survival progress and ladder points, daily reward streak, missions</td><td>To let you continue where you left off and to power rewards.</td><td>On your device only.</td></tr>
 <tr><td><b>Items you own and have equipped</b>: boards, symbols, avatars and their colours</td><td>To show your collection and appearance.</td><td>On your device only.</td></tr>
 <tr><td><b>Settings</b>: music and sound volume, vibration, reduced effects, keep-screen-awake, reminders</td><td>To remember your preferences.</td><td>On your device only.</td></tr>
-</table>
+</table></div>
 <p>This information is stored in a small save file inside the App's private storage. Other apps cannot read it, and it is removed when you uninstall the App or clear its data.</p>
 
 <h2 id="not">3. What we do not collect</h2>
@@ -66,12 +68,12 @@
 <p>The information described above is used only on your device, to run the game: to save and restore your progress, apply your settings and appearance, calculate rewards and rankings, and schedule the reminders you have allowed. We do not use it for profiling, advertising or any purpose unrelated to playing the game.</p>
 
 <h2 id="perm">5. Device permissions</h2>
-<table>
+<div class="tbl"><table>
 <tr><th>Permission</th><th>Purpose</th><th>Your control</th></tr>
 <tr><td><b>Notifications</b> (Android 13 and later)</td><td>To show friendly reminders to come back and play (for example around 9:00, 14:00 and 18:00 local time) and daily reward alerts.</td><td>You are asked before the first reminder. You can switch reminders off in <i>Settings &rarr; Daily reminders</i> or in your phone's system settings at any time.</td></tr>
 <tr><td><b>Vibration</b></td><td>Short haptic feedback during play.</td><td>Switch off in <i>Settings &rarr; Vibration</i>.</td></tr>
 <tr><td><b>Run at startup / exact alarms</b></td><td>So that reminders you have enabled still arrive after your phone restarts.</td><td>Disable reminders in the App to cancel all scheduled alerts.</td></tr>
-</table>
+</table></div>
 <p>Reminders are generated locally by your device. They do not involve any server and are not used to track you.</p>
 
 <h2 id="share">6. Sharing and third parties</h2>
@@ -103,6 +105,7 @@
 <p>Questions, requests or concerns about this policy or your privacy? Write to Pulsebyte and we will reply as soon as we can.</p>
 <p><a class="btn" href="mailto:help.pulsebyte@gmail.com?subject=Tic%20Tac%20Battle%20-%20Privacy%20question">Email Pulsebyte</a></p>
 </main>
-<footer>&copy; 2026 Pulsebyte. All rights reserved. &middot; <a href="index.html">Home</a> &middot; <a href="terms.html">Terms of Use</a></footer>
+<footer><img src="favicon.png" alt="" width="30" height="30">&copy; 2026 Pulsebyte. All rights reserved. &middot; <a href="index.html">Home</a> &middot; <a href="terms.html">Terms of Use</a></footer>
+<script src="script.js"></script>
 </body>
 </html>
