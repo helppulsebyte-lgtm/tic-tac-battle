@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Join my Tic Tac Battle room</title>
+<meta name="description" content="A friend is waiting for you in Tic Tac Battle. Tap to jump straight into the room.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="logo.png">
+<meta name="theme-color" content="#0f0a2a">
+<meta property="og:title" content="Join my Tic Tac Battle room">
+<meta property="og:description" content="A friend is waiting for you. Tap to jump straight into the match.">
+<meta property="og:image" content="https://helppulsebyte-lgtm.github.io/tic-tac-battle/logo.png">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+<style>
+.join{text-align:center;max-width:560px;margin:18px auto 0}
+.join .logo{width:104px;height:104px;border-radius:26px;box-shadow:0 12px 34px rgba(124,77,255,.5),0 0 0 3px rgba(255,255,255,.1)}
+.join h1{margin:18px 0 6px}
+.join p{margin:6px 0}
+.tiles{display:flex;justify-content:center;gap:10px;margin:26px 0 8px}
+.tiles span{width:clamp(48px,14vw,66px);height:clamp(64px,19vw,88px);display:flex;align-items:center;justify-content:center;border-radius:16px;background:#150f3d;border:3px solid var(--gold);color:#fff;font-weight:900;font-size:clamp(30px,9vw,44px);box-shadow:0 8px 20px rgba(0,0,0,.35),0 0 18px rgba(255,210,63,.25)}
+.tiles span:nth-child(odd){transform:rotate(-3deg)}.tiles span:nth-child(even){transform:rotate(3deg)}
+.big{display:block;margin:22px auto 10px;padding:18px 22px;font-size:20px}
+.alt2{display:block;margin:6px auto;opacity:.9}
+.hint{color:var(--dim);font-size:14px}
+.warn{display:none;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin:18px 0}
+</style>
+</head>
+<body>
+<div class="bar"><header class="top"><a class="brand" href="index.html"><img src="logo.png" alt="Tic Tac Battle logo" width="44" height="44"><span>TIC TAC <b>BATTLE</b></span></a><nav id="mainNav" aria-label="Main"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></header></div>
+<main>
+<section class="join">
+  <img class="logo" src="logo.png" alt="Tic Tac Battle" width="104" height="104">
+  <h1 id="title">A friend is <span>waiting</span> for you!</h1>
+  <p class="meta" id="sub">Tap the button and you land straight in their room.</p>
+  <div class="tiles" id="tiles" aria-label="Room code"></div>
+  <a class="btn big" id="open" href="#">Open in Tic Tac Battle</a>
+  <a class="btn alt alt2" id="store" href="https://play.google.com/store/apps/details?id=com.pulsebyte.tictacbattle">Get the game on Google Play</a>
+  <p class="hint" id="manual">Already have the game? Open it, tap <b>Friends</b>, then type the code above.</p>
+  <div class="warn" id="warn">Tic Tac Battle is an Android game. Open this link on your Android phone to join the room.</div>
+</section>
+</main>
+<footer><img src="favicon.png" alt="" width="30" height="30">&copy; 2026 Pulsebyte. All rights reserved.</footer>
+<script>
+(function () {
+  var alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  var raw = (new URLSearchParams(location.search).get("c") || "").toUpperCase().replace(/[\s-]/g, "");
+  var ok = raw.length === 5 && raw.split("").every(function (ch) { return alphabet.indexOf(ch) >= 0; });
+  var tiles = document.getElementById("tiles");
+  var open = document.getElementById("open");
+  var android = /Android/i.test(navigator.userAgent);
+  var store = "https://play.google.com/store/apps/details?id=com.pulsebyte.tictacbattle";
+
+  if (!ok) {
+    document.getElementById("title").innerHTML = "That invite <span>looks incomplete</span>";
+    document.getElementById("sub").textContent = "Ask your friend to send the invite again, or open the game and type their 5-letter code under Friends.";
+    open.style.display = "none"; document.getElementById("manual").style.display = "none";
+    return;
+  }
+  raw.split("").forEach(function (ch) { var s = document.createElement("span"); s.textContent = ch; tiles.appendChild(s); });
+
+  // Android Chrome: an intent link opens the installed game, or falls back to the store page
+  var intent = "intent://room/" + raw + "#Intent;scheme=tictacbattle;package=com.pulsebyte.tictacbattle;S.browser_fallback_url=" + encodeURIComponent(store) + ";end";
+  open.href = android ? intent : "tictacbattle://room/" + raw;
+  if (!android) { document.getElementById("warn").style.display = "block"; open.style.display = "none"; }
+  else { setTimeout(function () { location.href = intent; }, 600); }   // try to open the game straight away
+})();
+</script>
+</body>
+</html>
